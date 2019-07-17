@@ -1,0 +1,10 @@
+<h1 class="page-title" > {{page.title}} </h1>
+<div class="content">
+    {% for image in site.static_files %}
+      {% if image.path contains 'images/category_photos/' %}
+        {% if image.path contains page.title %}
+          <img class="content-photos" src="{{ site.baseurl }}{{ image.path }}">
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>

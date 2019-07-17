@@ -1,0 +1,23 @@
+---
+layout: default
+title: Photos and things ...
+---
+
+<!doctype html>
+
+<body>
+  <script src="js/scripts.js"></script>
+  <header class="header-image-container">
+    <img class="header-image" src="images/lake_moraine.jpg" alt="Lake Morraine">
+  </header>
+
+  <div class="content">
+    <div class="cover-photo"> </div>
+    {% for image in site.static_files %}
+      {% if image.path contains 'images/categories' %}
+      <a class="content-photo-links" href="#" onClick="document.location.href=createImageLink(' {{image.path}} ');" onmouseover="findAlbumTitle(' {{image.path}} ')"><img class="content-photos" src="{{ site.baseurl }}{{ image.path }}">
+        <div class="overlay-photo-text" onmouseover="findAlbumTitle(' {{image.path}} ')">  </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</body>
